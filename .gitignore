@@ -1,0 +1,17 @@
+# İşletim sistemi ve OneDrive artıkları
+desktop.ini
+Thumbs.db
+ehthumbs.db
+.DS_Store
+
+# Editör ayarları
+.vscode/
+.idea/
+*.swp
+
+# Bağımlılıklar (bu projede yok ama ileride eklenirse)
+node_modules/
+
+# Geçici dosyalar
+*.log
+*.tmp

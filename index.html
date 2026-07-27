@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="tr" class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- ================= SEO =================
+         DİKKAT: Alan adını değiştirirsen (örn. harunkaraca.com alırsan)
+         aşağıdaki 4 yerde de güncelle: canonical, og:url,
+         iki hreflang satırı — ayrıca sitemap.xml ve robots.txt içinde.
+         Şu anki adres: https://harunresit44.github.io/
+         ======================================== -->
+
+    <title>Malatya Web Sitesi ve Mobil Uygulama Geliştirme | Harun Reşit Karaca</title>
+    <meta
+      name="description"
+      content="Malatya'da web sitesi tasarımı, mobil uygulama geliştirme ve Arduino projeleri. Bilgisayar mühendisi Harun Reşit Karaca ile iletişime geçin."
+    />
+    <meta name="author" content="Harun Reşit Karaca" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#faf8f4" />
+
+    <!-- Yerel arama sinyalleri -->
+    <meta name="geo.region" content="TR-44" />
+    <meta name="geo.placename" content="Malatya" />
+
+    <link rel="canonical" href="https://harunresit44.github.io/" />
+    <link rel="alternate" hreflang="tr" href="https://harunresit44.github.io/" />
+    <link rel="alternate" hreflang="en" href="https://harunresit44.github.io/?lang=en" />
+    <link rel="alternate" hreflang="x-default" href="https://harunresit44.github.io/" />
+
+    <!-- LinkedIn/WhatsApp gibi yerlerde link paylaşınca çıkan kart.
+         Görsel: assets/og-image.png (1200x630). Tasarımını değiştirmek
+         istersen görseli aynı boyutta yenisiyle değiştirmen yeterli. -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:site_name" content="Harun Reşit Karaca" />
+    <meta property="og:url" content="https://harunresit44.github.io/" />
+    <meta
+      property="og:title"
+      content="Malatya Web Sitesi ve Mobil Uygulama Geliştirme | Harun Reşit Karaca"
+    />
+    <meta
+      property="og:description"
+      content="Malatya'da web sitesi tasarımı, mobil uygulama geliştirme ve Arduino projeleri. Hızlı, mobil uyumlu ve arama motorlarına hazır web siteleri."
+    />
+    <meta property="og:locale" content="tr_TR" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:image" content="https://harunresit44.github.io/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Harun Reşit Karaca — Malatya'da web sitesi, mobil uygulama ve Arduino projeleri"
+    />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:image"
+      content="https://harunresit44.github.io/assets/og-image.png"
+    />
+    <meta
+      name="twitter:title"
+      content="Malatya Web Sitesi ve Mobil Uygulama Geliştirme | Harun Reşit Karaca"
+    />
+    <meta
+      name="twitter:description"
+      content="Malatya'da web sitesi tasarımı, mobil uygulama geliştirme ve Arduino projeleri."
+    />
+
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- Tema/dil tercihini sayfa boyanmadan uygular. Ayrıntı: js/boot.js -->
+    <script src="js/boot.js"></script>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main" data-i18n="a11y.skip">İçeriğe geç</a>
+
+    <!-- ============ ÜST ÇUBUK ============ -->
+    <header class="header">
+      <div class="header__inner">
+        <a class="brand" href="#top">
+          <span class="brand__mark" id="brand-mark">HK</span>
+          <span class="brand__name" id="brand-name">Harun Reşit Karaca</span>
+        </a>
+
+        <nav class="nav" id="nav" aria-label="Site menüsü">
+          <a class="nav__link" href="#about" data-i18n="nav.about">Hakkımda</a>
+          <a class="nav__link" href="#services" data-i18n="nav.services">Hizmetler</a>
+          <a class="nav__link" href="#skills" data-i18n="nav.skills">Yetenekler</a>
+          <a class="nav__link" href="#experience" data-i18n="nav.experience">Deneyim</a>
+          <a class="nav__link" href="#projects" data-i18n="nav.projects">Projeler</a>
+          <a class="nav__link" href="#education" data-i18n="nav.education">Eğitim</a>
+          <a class="nav__link" href="#contact" data-i18n="nav.contact">İletişim</a>
+        </nav>
+
+        <div class="header__tools">
+          <button
+            class="icon-btn lang-btn"
+            id="lang-toggle"
+            type="button"
+            title="Siteyi İngilizce görüntüle"
+          >
+            <span id="lang-label">EN</span>
+          </button>
+
+          <button
+            class="icon-btn"
+            id="theme-toggle"
+            type="button"
+            data-i18n-title="a11y.themeToggle"
+            title="Temayı değiştir"
+          >
+            <svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon" /></svg>
+            <svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun" /></svg>
+            <span class="sr-only" data-i18n="a11y.themeToggle">Temayı değiştir</span>
+          </button>
+
+          <button
+            class="icon-btn nav-toggle"
+            id="nav-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="nav"
+          >
+            <svg class="icon icon-menu" aria-hidden="true"><use href="#i-menu" /></svg>
+            <svg class="icon icon-close" aria-hidden="true"><use href="#i-close" /></svg>
+            <span class="sr-only" data-i18n="a11y.menuToggle">Menüyü aç/kapat</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <span id="top"></span>
+
+      <!-- ============ HERO ============ -->
+      <section class="hero container">
+        <div class="hero__grid">
+          <div class="hero__intro">
+            <p class="hero__available" id="hero-status" hidden>
+              <span class="badge"><span class="badge__dot"></span><span id="hero-status-text"></span></span>
+            </p>
+
+            <h1 class="hero__name" id="hero-name">Harun Reşit Karaca</h1>
+            <p class="hero__title" id="hero-title"></p>
+            <p class="hero__subtitle" id="hero-subtitle"></p>
+            <p class="hero__tagline" id="hero-tagline"></p>
+
+            <div class="hero__actions">
+              <a class="btn btn--primary" href="#projects" data-i18n="btn.projects">
+                Projelerimi Gör
+                <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg>
+              </a>
+              <button class="btn btn--ghost" id="print-cv" type="button">
+                <svg class="icon" aria-hidden="true"><use href="#i-download" /></svg>
+                <span data-i18n="btn.cv">CV'yi PDF Kaydet</span>
+              </button>
+              <a class="btn btn--ghost" id="hero-mail" href="#">
+                <svg class="icon" aria-hidden="true"><use href="#i-mail" /></svg>
+                <span data-i18n="btn.contact">İletişime Geç</span>
+              </a>
+            </div>
+
+            <div class="hero__meta">
+              <span>
+                <svg class="icon" aria-hidden="true"><use href="#i-pin" /></svg>
+                <span id="hero-location"></span>
+              </span>
+              <a id="hero-github" href="#" target="_blank" rel="noopener noreferrer">
+                <svg class="icon icon--solid" aria-hidden="true"><use href="#i-github" /></svg>
+                <span id="hero-github-label"></span>
+              </a>
+              <a id="hero-linkedin" href="#" target="_blank" rel="noopener noreferrer">
+                <svg class="icon icon--solid" aria-hidden="true"><use href="#i-linkedin" /></svg>
+                <span id="hero-linkedin-label"></span>
+              </a>
+              <!-- Sadece yazdırma/PDF çıktısında görünür: ekranda e-posta
+                   zaten İletişim bölümünde var, ama CV çıktısında o bölüm gizleniyor. -->
+              <span class="print-only">
+                <svg class="icon" aria-hidden="true"><use href="#i-mail" /></svg>
+                <span id="hero-email"></span>
+              </span>
+            </div>
+          </div>
+
+          <div class="hero__media">
+            <!-- FOTOĞRAF: js/data.js içindeki profile.photo alanına
+                 dosya yolunu yazdığında monogram yerine fotoğraf gelir. -->
+            <div class="avatar">
+              <span class="avatar__mono" id="avatar-mono">HK</span>
+              <img class="avatar__img" id="avatar-img" alt="" hidden />
+            </div>
+            <p class="avatar__hint" data-i18n="hero.photoHint">Fotoğraf eklenecek</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ HAKKIMDA ============ -->
+      <section class="section container" id="about">
+        <div class="section__head">
+          <span class="section__eyebrow" data-i18n="about.eyebrow">01 — Hakkımda</span>
+          <h2 class="section__title" data-i18n="about.title">Kısaca ben</h2>
+        </div>
+
+        <div class="about__grid">
+          <div class="about__text" id="about-text"></div>
+
+          <div class="facts">
+            <div class="fact">
+              <span class="fact__label" data-i18n="facts.location">Konum</span>
+              <span class="fact__value" id="fact-location"></span>
+            </div>
+            <div class="fact">
+              <span class="fact__label" data-i18n="facts.study">Şu an</span>
+              <span class="fact__value" id="fact-study"></span>
+            </div>
+            <div class="fact">
+              <span class="fact__label" data-i18n="facts.focus">Odak</span>
+              <span class="fact__value" id="fact-focus"></span>
+            </div>
+            <div class="fact">
+              <span class="fact__label" data-i18n="facts.languages">Diller</span>
+              <span class="fact__value" id="fact-languages"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ HİZMETLER ============
+           Bu bölüm, Malatya'da web sitesi/mobil uygulama arayan
+           birinin seni bulabilmesi için var. İçeriği js/data.js
+           içindeki "services" listesinden geliyor. -->
+      <section class="section container" id="services">
+        <div class="section__head">
+          <span class="section__eyebrow" data-i18n="services.eyebrow">02 — Hizmetler</span>
+          <h2 class="section__title" data-i18n="services.title">Neler yapıyorum</h2>
+          <p class="section__lead" data-i18n="services.lead">
+            Malatya'da ve uzaktan; işletmeler, esnaf ve bireyler için web sitesi, mobil uygulama
+            ve Arduino tabanlı sistemler geliştiriyorum. Aklındaki işi anlatman yeterli, kapsamı
+            ve süreci birlikte netleştiririz.
+          </p>
+        </div>
+
+        <div class="services-grid" id="services-grid"></div>
+
+        <p class="services__cta">
+          <a class="btn btn--primary" id="services-mail" href="#">
+            <svg class="icon" aria-hidden="true"><use href="#i-mail" /></svg>
+            <span data-i18n="services.cta">Projeni konuşalım</span>
+          </a>
+          <!-- Adres js/main.js tarafından çalışma anında kuruluyor;
+               telefon numarası HTML kaynağında bütün halde yok. -->
+          <a
+            class="btn btn--wa wa-link"
+            rel="noopener noreferrer nofollow"
+            target="_blank"
+            hidden
+          >
+            <svg class="icon icon--solid" aria-hidden="true"><use href="#i-whatsapp" /></svg>
+            <span data-i18n="services.whatsapp">WhatsApp'tan yaz</span>
+          </a>
+        </p>
+      </section>
+
+      <!-- ============ YETENEKLER ============ -->
+      <section class="section container" id="skills">
+        <div class="section__head">
+          <span class="section__eyebrow" data-i18n="skills.eyebrow">03 — Yetenekler</span>
+          <h2 class="section__title" data-i18n="skills.title">Neler biliyorum</h2>
+          <p class="section__lead" data-i18n="skills.lead">
+            Ağırlıklı olarak web siteleri ve mobil uygulamalar geliştiriyorum; Arduino ile sensör
+            tabanlı gömülü sistem projeleri bunlara eşlik ediyor.
+          </p>
+        </div>
+
+        <div class="skills-grid" id="skills-grid"></div>
+      </section>
+
+      <!-- ============ DENEYİM ============ -->
+      <section class="section container" id="experience">
+        <div class="section__head">
+          <span class="section__eyebrow" data-i18n="experience.eyebrow">04 — Deneyim</span>
+          <h2 class="section__title" data-i18n="experience.title">Çalıştığım yerler</h2>
+        </div>
+
+        <div class="timeline" id="timeline"></div>
+      </section>
+
+      <!-- ============ PROJELER ============ -->
+      <section class="section container" id="projects">
+        <div class="section__head">
+          <span class="section__eyebrow" data-i18n="projects.eyebrow">05 — Projeler</span>
+          <h2 class="section__title" data-i18n="projects.title">Yaptığım projeler</h2>
+          <p class="section__lead" data-i18n="projects.lead">
+            Kodların tamamı GitHub'da açık. Her kartın sağ üstündeki simgeden ilgili depoya
+            gidebilirsin.
+          </p>
+        </div>
+
+        <div class="projects-grid" id="projects-grid"></div>
+      </section>
+
+      <!-- ============ EĞİTİM / SERTİFİKA / DİL ============ -->
+      <section class="section container" id="education">
+        <div class="section__head">
+          <span class="section__eyebrow" data-i18n="education.eyebrow">06 — Eğitim</span>
+          <h2 class="section__title" data-i18n="education.title">Eğitim, sertifikalar ve diller</h2>
+        </div>
+
+        <div class="trio">
+          <div class="panel">
+            <h3 class="panel__title">
+              <svg class="icon" aria-hidden="true"><use href="#i-cap" /></svg>
+              <span data-i18n="education.schoolTitle">Eğitim</span>
+            </h3>
+            <div class="entry-list" id="education-list"></div>
+          </div>
+
+          <div class="panel">
+            <h3 class="panel__title">
+              <svg class="icon" aria-hidden="true"><use href="#i-award" /></svg>
+              <span data-i18n="education.certTitle">Sertifikalar</span>
+            </h3>
+            <div class="entry-list" id="certificates-list"></div>
+          </div>
+
+          <div class="panel">
+            <h3 class="panel__title">
+              <svg class="icon" aria-hidden="true"><use href="#i-globe" /></svg>
+              <span data-i18n="education.langTitle">Diller</span>
+            </h3>
+            <div class="entry-list" id="languages-list"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ İLETİŞİM ============ -->
+      <section class="section container contact" id="contact">
+        <span class="section__eyebrow" data-i18n="contact.eyebrow">07 — İletişim</span>
+        <h2 class="contact__title" data-i18n="contact.title">Konuşalım</h2>
+        <p class="contact__lead" data-i18n="contact.lead">
+          Bir iş fırsatı, proje fikri ya da sadece merak ettiğin bir şey için yazabilirsin. E-postalara
+          genelde kısa sürede dönüyorum.
+        </p>
+
+        <div class="contact__actions">
+          <a class="btn btn--primary" id="contact-mail" href="#">
+            <svg class="icon" aria-hidden="true"><use href="#i-mail" /></svg>
+            <span id="contact-mail-label"></span>
+          </a>
+          <a
+            class="btn btn--wa wa-link"
+            rel="noopener noreferrer nofollow"
+            target="_blank"
+            hidden
+          >
+            <svg class="icon icon--solid" aria-hidden="true"><use href="#i-whatsapp" /></svg>
+            <span data-i18n="contact.whatsapp">WhatsApp</span>
+          </a>
+          <a class="btn btn--ghost" id="contact-github" href="#" target="_blank" rel="noopener noreferrer">
+            <svg class="icon icon--solid" aria-hidden="true"><use href="#i-github" /></svg>
+            GitHub
+          </a>
+          <a
+            class="btn btn--ghost"
+            id="contact-linkedin"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg class="icon icon--solid" aria-hidden="true"><use href="#i-linkedin" /></svg>
+            LinkedIn
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <span id="footer-copy"></span>
+        <span class="footer__links">
+          <a href="#top" data-i18n="footer.toTop">Başa dön</a>
+        </span>
+      </div>
+    </footer>
+
+    <!-- ============ SVG SİMGE SPRITE ============
+         Simgeler burada bir kez tanımlanıyor, sayfada <use> ile
+         çağrılıyor. Harici dosya veya ikon kütüphanesi yok. -->
+    <svg class="icon-sprite" width="0" height="0" aria-hidden="true" focusable="false">
+      <symbol id="i-sun" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="4" />
+        <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+      </symbol>
+
+      <symbol id="i-moon" viewBox="0 0 24 24">
+        <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" />
+      </symbol>
+
+      <symbol id="i-menu" viewBox="0 0 24 24">
+        <path d="M4 7h16M4 12h16M4 17h16" />
+      </symbol>
+
+      <symbol id="i-close" viewBox="0 0 24 24">
+        <path d="M6 6l12 12M18 6L6 18" />
+      </symbol>
+
+      <symbol id="i-download" viewBox="0 0 24 24">
+        <path d="M12 3v12m-5-5 5 5 5-5M4 21h16" />
+      </symbol>
+
+      <symbol id="i-mail" viewBox="0 0 24 24">
+        <rect x="2.5" y="4.5" width="19" height="15" rx="2.5" />
+        <path d="m3 6.5 9 6 9-6" />
+      </symbol>
+
+      <symbol id="i-pin" viewBox="0 0 24 24">
+        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+        <circle cx="12" cy="10" r="3" />
+      </symbol>
+
+      <symbol id="i-arrow" viewBox="0 0 24 24">
+        <path d="M5 12h14m-6-6 6 6-6 6" />
+      </symbol>
+
+      <symbol id="i-external" viewBox="0 0 24 24">
+        <path d="M14 4h6v6" />
+        <path d="M20 4 11 13" />
+        <path d="M18 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5" />
+      </symbol>
+
+      <symbol id="i-whatsapp" viewBox="0 0 24 24">
+        <path
+          d="M17.47 14.38c-.29-.15-1.7-.84-1.97-.94-.26-.1-.45-.14-.64.14-.19.29-.73.94-.9 1.13-.16.19-.33.21-.62.07-.29-.15-1.22-.45-2.32-1.43-.86-.77-1.44-1.71-1.6-2-.17-.29-.02-.44.13-.59.13-.13.29-.34.43-.5.15-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.15-.64-1.56-.88-2.13-.23-.56-.47-.48-.64-.49h-.55c-.19 0-.5.07-.76.36-.26.29-1 .98-1 2.38s1.02 2.76 1.17 2.95c.14.19 2.01 3.08 4.88 4.32.68.29 1.21.47 1.63.6.68.22 1.31.19 1.8.11.55-.08 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.34Z"
+        />
+        <path
+          d="M12.05 21.8h-.02a9.8 9.8 0 0 1-4.99-1.37l-.36-.21-3.71.97.99-3.62-.23-.37a9.8 9.8 0 0 1-1.5-5.23c0-5.41 4.4-9.81 9.82-9.81 2.62 0 5.09 1.02 6.94 2.88a9.75 9.75 0 0 1 2.87 6.94c0 5.41-4.4 9.82-9.81 9.82ZM20.5 3.49A11.72 11.72 0 0 0 12.05 0C5.56 0 .28 5.28.28 11.77c0 2.07.54 4.1 1.57 5.88L.18 24l6.5-1.7a11.72 11.72 0 0 0 5.37 1.31h.01c6.49 0 11.77-5.28 11.77-11.77 0-3.15-1.22-6.1-3.44-8.33Z"
+        />
+      </symbol>
+
+      <symbol id="i-cap" viewBox="0 0 24 24">
+        <path d="M22 10 12 5 2 10l10 5 10-5Z" />
+        <path d="M6 12v5c0 1.1 2.7 2.5 6 2.5s6-1.4 6-2.5v-5" />
+      </symbol>
+
+      <symbol id="i-award" viewBox="0 0 24 24">
+        <circle cx="12" cy="9" r="6" />
+        <path d="m8.2 13.9-1.7 6.6L12 18l5.5 2.5-1.7-6.6" />
+      </symbol>
+
+      <symbol id="i-globe" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9.5" />
+        <path d="M2.5 12h19" />
+        <path d="M12 2.5a15 15 0 0 1 0 19 15 15 0 0 1 0-19Z" />
+      </symbol>
+
+      <symbol id="i-github" viewBox="0 0 24 24">
+        <path
+          d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.16.08 1.78 1.19 1.78 1.19 1.04 1.78 2.72 1.27 3.38.97.11-.76.41-1.27.74-1.56-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.4-5.25 5.69.42.36.79 1.08.79 2.18v3.23c0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"
+        />
+      </symbol>
+
+      <symbol id="i-linkedin" viewBox="0 0 24 24">
+        <path
+          d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.26 2.37 4.26 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13Zm1.78 13.02H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"
+        />
+      </symbol>
+    </svg>
+
+    <!-- ============ YAPILANDIRILMIŞ VERİ (JSON-LD) ============
+         Arama motorlarına "bu kim, nerede, ne hizmeti veriyor" bilgisini
+         doğrudan söyler. Google'ın seni Malatya ile ilişkilendirmesi
+         büyük ölçüde buraya bakar.
+         Bilgilerini değiştirirsen (isim, e-posta, şehir) burayı da güncelle. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://harunresit44.github.io/#harun",
+            "name": "Harun Reşit Karaca",
+            "jobTitle": "Bilgisayar Mühendisi",
+            "description": "Web sitesi ve mobil uygulama geliştiricisi. Arduino ve gömülü sistem projeleri.",
+            "url": "https://harunresit44.github.io/",
+            "email": "mailto:harunrstkaraca@gmail.com",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Malatya",
+              "addressCountry": "TR"
+            },
+            "sameAs": [
+              "https://github.com/harunresit44",
+              "https://www.linkedin.com/in/harunrstkaraca/"
+            ],
+            "knowsLanguage": ["tr", "en"],
+            "knowsAbout": [
+              "Web sitesi geliştirme",
+              "Mobil uygulama geliştirme",
+              "Arduino",
+              "Gömülü sistemler",
+              "C#",
+              ".NET",
+              "JavaScript",
+              "Swift",
+              "Flutter",
+              "Pekiştirmeli öğrenme"
+            ],
+            "alumniOf": {
+              "@type": "CollegeOrUniversity",
+              "name": "Konya Gıda ve Tarım Üniversitesi"
+            }
+          },
+          {
+            "@type": "ProfessionalService",
+            "@id": "https://harunresit44.github.io/#hizmetler",
+            "name": "Harun Reşit Karaca — Web ve Mobil Uygulama Geliştirme",
+            "description": "Malatya merkezli web sitesi tasarımı, mobil uygulama geliştirme ve Arduino tabanlı gömülü sistem projeleri.",
+            "url": "https://harunresit44.github.io/",
+            "email": "mailto:harunrstkaraca@gmail.com",
+            "provider": { "@id": "https://harunresit44.github.io/#harun" },
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Malatya",
+              "addressCountry": "TR"
+            },
+            "areaServed": [
+              { "@type": "City", "name": "Malatya" },
+              { "@type": "Country", "name": "Türkiye" }
+            ],
+            "availableLanguage": ["tr", "en"],
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Hizmetler",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Web Sitesi Tasarımı ve Geliştirme",
+                    "description": "İşletmeler ve bireyler için hızlı, mobil uyumlu ve arama motorlarına hazır web siteleri."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Mobil Uygulama Geliştirme",
+                    "description": "iOS ve Android uygulama geliştirme, API ve veri tabanı entegrasyonu."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Arduino ve Gömülü Sistem Projeleri",
+                    "description": "Sensör tabanlı ölçüm ve kontrol sistemleri, devre kurulumu, robotik kodlama eğitimi."
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://harunresit44.github.io/#website",
+            "url": "https://harunresit44.github.io/",
+            "name": "Harun Reşit Karaca",
+            "inLanguage": "tr-TR",
+            "publisher": { "@id": "https://harunresit44.github.io/#harun" }
+          }
+        ]
+      }
+    </script>
+
+    <script src="js/data.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

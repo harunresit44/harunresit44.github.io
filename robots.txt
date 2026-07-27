@@ -1,0 +1,6 @@
+# Tüm arama motorları siteyi tarayabilir
+User-agent: *
+Allow: /
+
+# Alan adını değiştirirsen bu satırı da güncelle
+Sitemap: https://harunresit44.github.io/sitemap.xml

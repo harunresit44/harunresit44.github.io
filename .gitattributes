@@ -1,0 +1,9 @@
+# Satır sonlarını depoda tek biçimde tut (LF).
+# Windows'ta çalışırken dosyalar CRLF olarak açılır, depoya LF gider.
+# Bu olmadan başka bir bilgisayarda düzenleyince tüm dosya değişmiş görünür.
+* text=auto eol=lf
+
+# İkili dosyalara dokunma
+*.png binary
+*.jpg binary
+*.ico binary
