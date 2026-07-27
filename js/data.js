@@ -38,7 +38,7 @@ const DATA = {
        Fotoğrafını assets/ klasörüne kopyalayıp buraya dosya yolunu yaz:
        photo: "assets/profile.jpg"
        null bırakırsan monogram görünmeye devam eder. */
-    photo: null,
+    photo: "assets/profile.jpg",
     /* Hero'da isminin üstünde küçük bir etiket çıkar.
        Örn: { tr: "Yeni fırsatlara açık", en: "Open to new opportunities" }
        İstemiyorsan null bırak, etiket hiç görünmez. */

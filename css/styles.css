@@ -213,9 +213,12 @@ ul {
   color: var(--accent-contrast);
 }
 
-/* Ekranda gizli, sadece yazdırma/PDF çıktısında görünen ögeler */
+/* Ekranda gizli, sadece yazdırma/PDF çıktısında görünen ögeler.
+   !important şart: .hero__meta span gibi iki sınıflı seçiciler
+   daha yüksek özgüllükte olduğu için bu kuralı eziyordu ve
+   e-posta adresi ekranda da görünüyordu. */
 .print-only {
-  display: none;
+  display: none !important;
 }
 
 /* Sayfa sonundaki SVG simge deposu — görünmez, yer kaplamaz */
