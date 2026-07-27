@@ -193,13 +193,21 @@ Yeni bir sitenin aramalarda görünmesi genelde **1–3 ay** sürer. "Malatya we
 gibi rekabetli aramalarda ajanslarla yarışırsın; asıl işini Google İşletme Profili ve
 zamanla biriken gerçek referanslar yapar. Meta etiketleri gerekli ama tek başına yeterli değil.
 
-### Alan adını değiştirirsen
+### Alan adı
 
-`harunresit44.github.io` yerine kendi alan adını alırsan şu 5 dosyada adresi güncelle:
+Site `harunresitkaraca.com.tr` adresinde yayınlanıyor; dosyalar GitHub'da duruyor,
+GitHub Pages sunuyor. Alan adını ileride değiştirirsen şu 4 yerde adresi güncelle:
 
-- `index.html` → canonical, og:url, iki hreflang satırı ve JSON-LD içindeki adresler
-- `sitemap.xml` → `<loc>` ve hreflang satırları
+- `CNAME` → tek satır, sadece alan adı (protokol ve eğik çizgi yok)
+- `index.html` → canonical, og:url, og:image, twitter:image, üç hreflang satırı
+  ve sayfa sonundaki JSON-LD içindeki bütün adresler
+- `sitemap.xml` → `<loc>`
 - `robots.txt` → `Sitemap:` satırı
+
+`assets/og-image.png` görselinin alt köşesinde de alan adı yazılı, onu da yenilemen gerekir.
+
+> **Dikkat:** `js/data.js` içindeki "Canlı demo" bağlantısı (`Password_Check_JS`)
+> ayrı bir deponun GitHub Pages adresidir, `github.io` olarak kalmalı.
 
 ---
 
@@ -266,7 +274,27 @@ git push -u origin main
    İlk push'ta tarayıcıda GitHub giriş penceresi açılır, hesabınla giriş yap.
    Kimlik bir kez kaydedilir, sonraki push'larda sormaz.
 
-4. Bir iki dakika sonra site **https://harunresit44.github.io** adresinde yayında olur.
+4. Bir iki dakika sonra site yayında olur.
+
+### Alan adını GitHub Pages'e bağlama
+
+Depodaki `CNAME` dosyası alan adını GitHub'a bildiriyor. Karşılığında alan adının
+DNS panelinde şu kayıtların olması gerekir:
+
+| Tip | Ad | Değer |
+|---|---|---|
+| A | @ | 185.199.108.153 |
+| A | @ | 185.199.109.153 |
+| A | @ | 185.199.110.153 |
+| A | @ | 185.199.111.153 |
+| CNAME | www | harunresit44.github.io. |
+
+Kayıtlar yayıldıktan sonra depo → **Settings → Pages → Enforce HTTPS** kutusunu işaretle.
+Sertifika hazır olana kadar bu kutu pasif kalabilir (24 saate kadar sürebiliyor).
+
+> **Sıralama önemli:** Önce DNS kayıtlarını gir, sonra `CNAME` dosyasını depoya at.
+> Ters yaparsan GitHub `github.io` adresini henüz çözülmeyen alan adına yönlendirir
+> ve site erişilemez hale gelir.
 
 ### Sonraki güncellemeler
 
