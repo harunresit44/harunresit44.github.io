@@ -243,26 +243,17 @@ referans bilgisi çıkarılmış bir "web sürümü" hazırla.
 
 Site tamamen statik olduğu için GitHub Pages'e olduğu gibi yüklenir.
 
-1. GitHub'da **`harunresit44.github.io`** adında yeni ve **public** bir depo oluştur.
-   (Depo adı tam olarak bu olmalı — kullanıcı adın + `.github.io`)
+**Git deposu zaten kuruldu ve ilk commit atıldı.** Kalan adımlar:
 
-2. Bu klasörde bir terminal aç ve sırayla çalıştır:
+1. **Önce şunu yap:** `Password_Check_JS` deposunun Pages'ini aç
+   (Settings → Pages → Deploy from a branch → `main` / `(root)` → Save).
+   Projeler bölümündeki "Canlı demo" bağlantısı oraya gidiyor; açılmazsa kırık link olur.
 
-```bash
-git init
-```
+2. GitHub'da **`harunresit44.github.io`** adında yeni ve **public** bir depo oluştur.
+   Depo adı tam olarak bu olmalı (kullanıcı adın + `.github.io`).
+   **README, .gitignore veya lisans ekleme** — depo boş olmalı.
 
-```bash
-git add .
-```
-
-```bash
-git commit -m "Kişisel site"
-```
-
-```bash
-git branch -M main
-```
+3. Bu klasörde terminal açıp sırayla çalıştır:
 
 ```bash
 git remote add origin https://github.com/harunresit44/harunresit44.github.io.git
@@ -272,7 +263,16 @@ git remote add origin https://github.com/harunresit44/harunresit44.github.io.git
 git push -u origin main
 ```
 
-3. Bir iki dakika sonra site **https://harunresit44.github.io** adresinde yayında olur.
+   İlk push'ta tarayıcıda GitHub giriş penceresi açılır, hesabınla giriş yap.
+   Kimlik bir kez kaydedilir, sonraki push'larda sormaz.
+
+4. Bir iki dakika sonra site **https://harunresit44.github.io** adresinde yayında olur.
+
+### Sonraki güncellemeler
+
+```bash
+git add . ; git commit -m "içerik güncellendi" ; git push
+```
 
 Sonraki güncellemelerde sadece şunlar yeterli:
 
