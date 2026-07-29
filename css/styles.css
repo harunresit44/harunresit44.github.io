@@ -998,9 +998,11 @@ ul {
   background: var(--bg-glow);
 }
 
+/* Sütun sayısı data.js > stats dizisinin uzunluğuna eşit.
+   Oraya bir öğe ekler/çıkarırsan bu üç sayıyı da güncelle. */
 .stats-strip__inner {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .stat {
@@ -1777,23 +1779,11 @@ ul {
     width: clamp(160px, 40vw, 220px);
   }
 
-  .stats-strip__inner {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .stat:nth-child(3) {
-    border-left: 0;
-  }
-
-  .stat:nth-child(1),
-  .stat:nth-child(2) {
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 18px;
-  }
-
-  .stat:nth-child(3),
-  .stat:nth-child(4) {
-    padding-top: 18px;
+  /* Üç öğe dar ekranda da tek satırda duruyor; yan boşluk
+     kısalıyor ki "Yetenek Alanı" sıkışmasın. */
+  .stat {
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }
 
@@ -1892,7 +1882,7 @@ ul {
   }
 
   .stats-strip__inner {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 

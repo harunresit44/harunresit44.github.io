@@ -54,7 +54,6 @@ const DATA = {
     { source: "experience", label: { tr: "Kurum", en: "Places" } },
     { source: "projects", label: { tr: "Proje", en: "Projects" } },
     { source: "skills", label: { tr: "Yetenek Alanı", en: "Skill Areas" } },
-    { source: "languages", label: { tr: "Dil", en: "Languages" } },
   ],
 
   contact: {
