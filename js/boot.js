@@ -31,8 +31,10 @@
   try {
     var theme = window.localStorage.getItem("tema");
     // Sadece beklenen iki değer kabul ediliyor, gelen veri
-    // doğrudan etikete yazılmıyor.
-    if (theme === "light" || theme === "dark") root.setAttribute("data-theme", theme);
+    // doğrudan etikete yazılmıyor. Kayıtlı tercih yoksa koyu tema
+    // (sitenin varsayılanı) yazılıyor — burası sayfa boyanmadan
+    // çalıştığı için aydınlık bir parlama olmuyor.
+    root.setAttribute("data-theme", theme === "light" ? "light" : "dark");
 
     if (!lang) {
       var stored = window.localStorage.getItem("dil");

@@ -543,11 +543,17 @@
   }
 
   /* --- 4. Tema --------------------------------------------- */
+  // Mobil tarayıcıların adres çubuğu rengi. Aktif temayla eşleşmezse
+  // aydınlık temadaki kullanıcı koyu bir çubukla karşılaşıyor.
+  function syncThemeColor(theme) {
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute("content", theme === "light" ? "#f7f2ea" : "#17110d");
+  }
+
   function setTheme(next) {
     root.setAttribute("data-theme", next);
     save(KEY_THEME, next);
-    var meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute("content", next === "light" ? "#f7f2ea" : "#17110d");
+    syncThemeColor(next);
   }
 
   function initTheme() {
@@ -558,11 +564,17 @@
       /* yoksay */
     }
 
-    // Varsayılan aydınlık tema. Kayıtlı bir tercih varsa o kullanılır;
-    // yoksa işletim sistemi koyu modda olsa bile site aydınlık açılır.
+    // Varsayılan koyu tema. Kayıtlı bir tercih varsa o kullanılır;
+    // yoksa işletim sistemi aydınlık modda olsa bile site koyu açılır.
+    // (boot.js bunu zaten sayfa boyanmadan yazıyor; burası yalnızca
+    // boot.js bir sebeple çalışmadıysa devreye giren emniyet.)
     if (stored !== "light" && stored !== "dark") {
-      root.setAttribute("data-theme", "light");
+      root.setAttribute("data-theme", "dark");
     }
+
+    // boot.js yalnızca data-theme'i yazıyor; meta etiketini burada
+    // aktif temayla eşitliyoruz (kayıtlı tercihle açılan sayfalar için).
+    syncThemeColor(root.getAttribute("data-theme"));
 
     var toggle = $("#theme-toggle");
     if (toggle) {
