@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="tr" class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Sayfa bulunamadı | Harun Reşit Karaca</title>
+    <meta name="robots" content="noindex, follow" />
+    <meta name="theme-color" content="#17110d" />
+
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- Tema tercihini sayfa boyanmadan uygular. Ayrıntı: js/boot.js -->
+    <script src="js/boot.js"></script>
+
+    <style>
+      /* Sadece bu sayfaya özel: site genelindeki header/nav/footer
+         olmadığı için tek ekranlık, ortalanmış bir düzen. */
+      .not-found {
+        min-height: 100svh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 32px 24px;
+      }
+
+      .not-found__brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: clamp(40px, 8vh, 88px);
+        color: var(--text);
+        text-decoration: none;
+      }
+
+      .not-found__mark {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 34px;
+        height: 34px;
+        border-radius: 8px;
+        background: var(--accent);
+        color: var(--accent-contrast);
+        font-family: var(--font-mono);
+        font-weight: 700;
+        font-size: 0.8rem;
+        letter-spacing: 0.02em;
+      }
+
+      .not-found__name {
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 1.05rem;
+      }
+
+      .not-found__code {
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: clamp(4.5rem, 16vw, 8rem);
+        line-height: 1;
+        letter-spacing: -0.02em;
+        color: var(--text);
+      }
+
+      .not-found .stripe {
+        margin: 22px 0 26px;
+      }
+
+      .not-found__title {
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: clamp(1.3rem, 3vw, 1.8rem);
+        margin-bottom: 12px;
+      }
+
+      .not-found__text {
+        max-width: 42ch;
+        color: var(--text-muted);
+        margin-bottom: 8px;
+      }
+
+      .not-found__text--en {
+        font-size: 0.92rem;
+        color: var(--text-faint);
+        margin-bottom: 36px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="not-found">
+      <a class="not-found__brand" href="/">
+        <span class="not-found__mark" aria-hidden="true">HK</span>
+        <span class="not-found__name">Harun Reşit Karaca</span>
+      </a>
+
+      <p class="not-found__code">404</p>
+      <span class="stripe" aria-hidden="true"></span>
+
+      <h1 class="not-found__title">Bu sayfa bulunamadı</h1>
+      <p class="not-found__text">
+        Aradığınız sayfa taşınmış ya da hiç var olmamış olabilir.
+      </p>
+      <p class="not-found__text not-found__text--en">
+        The page you are looking for could not be found.
+      </p>
+
+      <a class="btn btn--primary" href="/">
+        Ana sayfaya dön
+      </a>
+    </main>
+  </body>
+</html>

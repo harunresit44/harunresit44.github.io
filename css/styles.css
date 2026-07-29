@@ -135,7 +135,7 @@
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
-/* Koyu tema yalnızca kullanıcı düğmeyle seçtiğinde devreye girer.
+/* Sitenin varsayılan teması — js/boot.js sayfa boyanmadan bunu uyguluyor.
    Kontrast oranları: text/bg 15.16, textMuted/bg 7.42, textFaint/bg 4.55,
    accent/bg 7.08, accentContrast/accent 7.03 — hepsi eşiğin üstünde. */
 :root[data-theme="dark"] {
