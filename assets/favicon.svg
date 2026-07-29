@@ -1,13 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="HK">
-  <rect width="64" height="64" rx="8" fill="#14584a" />
+  <!-- Zemin: kesik köşe, espresso ton -->
+  <path d="M10 2H64V54L54 64H0V10Z" fill="#1f1712" />
+  <!-- HK baş harfleri, geniş/iddialı görünüm -->
   <text
-    x="32"
-    y="43"
+    x="30"
+    y="40"
     text-anchor="middle"
-    font-family="Palatino Linotype, Georgia, Times New Roman, serif"
-    font-size="30"
-    font-weight="600"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="27"
+    font-weight="800"
     letter-spacing="-1"
-    fill="#faf8f4"
+    fill="#f7f2ea"
   >HK</text>
+  <!-- İmza üçlü şerit -->
+  <rect x="0" y="50" width="21.3" height="6" fill="#8c6239" />
+  <rect x="21.3" y="50" width="21.3" height="6" fill="#a8541f" />
+  <rect x="42.6" y="50" width="21.4" height="6" fill="#4a2a14" />
 </svg>

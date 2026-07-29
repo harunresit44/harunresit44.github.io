@@ -16,6 +16,9 @@ node_modules/
 *.log
 *.tmp
 
+# Tasarım şartnamesi — çalışma dokümanı, siteyle yayınlanmasına gerek yok
+TASARIM-PLANI.md
+
 # Profil fotoğrafının kırpılmamış hali. Siteye assets/profile.jpg
 # (kare kırpılmış, 89 KB) konuyor; 640 KB'lık ham fotoğrafın herkese
 # açık depoda durmasına gerek yok. Kırpmayı yenilemek istersen

@@ -218,6 +218,52 @@
     );
   }
 
+  // Sayısal vurgu şeridi: rakamlar DATA'daki dizilerin uzunluğundan
+  // hesaplanıyor, data.js'te elle yazılmış bir sayı yok. Yeni bir
+  // deneyim/proje eklendiğinde otomatik güncellenir.
+  function renderStats() {
+    var wrap = $("#stats-strip");
+    if (!wrap || !DATA.stats) return;
+
+    wrap.innerHTML = DATA.stats
+      .map(function (stat) {
+        var list = DATA[stat.source];
+        var count = Array.isArray(list) ? list.length : 0;
+        return (
+          '<div class="stat reveal">' +
+          '<span class="stat__num">' +
+          count +
+          "</span>" +
+          '<span class="stat__label">' +
+          esc(t(stat.label)) +
+          "</span>" +
+          "</div>"
+        );
+      })
+      .join("");
+  }
+
+  // Hero'daki teknik künye satırı — motorsport telemetri estetiğinde,
+  // gerçek bilgi taşıyor: konum ve sitenin kendi teknoloji yığını.
+  function renderDossier() {
+    var wrap = $("#hero-dossier");
+    if (!wrap) return;
+
+    var location = t(DATA.profile.location);
+
+    wrap.innerHTML =
+      '<span><strong>' +
+      esc(rt("dossierLocationLabel")) +
+      "</strong> " +
+      esc(location) +
+      " · 38.35°N 38.31°E</span>" +
+      '<span><strong>' +
+      esc(rt("dossierStackLabel")) +
+      "</strong> " +
+      esc(rt("dossierStackValue")) +
+      "</span>";
+  }
+
   function renderServices() {
     var grid = $("#services-grid");
     if (!grid || !DATA.services) return;
@@ -225,7 +271,7 @@
     grid.innerHTML = DATA.services
       .map(function (service) {
         return (
-          '<article class="service reveal">' +
+          '<article class="service cut reveal">' +
           '<h3 class="service__title">' +
           esc(t(service.title)) +
           "</h3>" +
@@ -263,7 +309,7 @@
 
     wrap.innerHTML = DATA.experience
       .map(function (job) {
-        var classes = "job reveal";
+        var classes = "job cut reveal";
         if (job.current) classes += " is-current";
         if (job.highlight) classes += " is-highlight";
 
@@ -304,8 +350,10 @@
     grid.innerHTML = DATA.projects
       .map(function (project, index) {
         var name = t(project.name);
-        // İlk proje tüm satırı kaplayan vitrin kartı olarak çıkıyor
-        var classes = "project reveal" + (index === 0 ? " is-featured-lead" : "");
+        // İlk proje tüm satırı kaplayan vitrin kartı olarak çıkıyor (kesik
+        // köşesi yok, kendi filigran numarasıyla zaten ayrışıyor); diğerleri
+        // "cut" ile kesik köşeli standart kart.
+        var classes = "project reveal" + (index === 0 ? " is-featured-lead" : " cut");
 
         var repoUrl = safeUrl(project.repo);
         var demoUrl = safeUrl(project.demo);
@@ -345,15 +393,18 @@
             "</a>"
           : "";
 
+        var indexStr = (index + 1 < 10 ? "0" : "") + (index + 1);
+
         return (
           '<article class="' +
           classes +
+          '" data-index="' +
+          indexStr +
           '">' +
           '<div class="project__head">' +
           "<div>" +
           '<span class="project__index">' +
-          (index + 1 < 10 ? "0" : "") +
-          (index + 1) +
+          indexStr +
           "</span>" +
           '<h3 class="project__name">' +
           esc(name) +
@@ -451,13 +502,16 @@
 
   function renderAll() {
     renderHero();
+    renderDossier();
     renderAbout();
+    renderStats();
     renderServices();
     renderSkills();
     renderExperience();
     renderProjects();
     renderEducation();
     renderFooter();
+    buildTicker();
     setupReveal(firstRender);
     firstRender = false;
   }
@@ -493,7 +547,7 @@
     root.setAttribute("data-theme", next);
     save(KEY_THEME, next);
     var meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute("content", next === "light" ? "#faf8f4" : "#15130f");
+    if (meta) meta.setAttribute("content", next === "light" ? "#f7f2ea" : "#17110d");
   }
 
   function initTheme() {
@@ -628,6 +682,101 @@
     update();
   }
 
+  /* --- 6c. Kayan teknoloji şeridi ---------------------------
+     DATA.skills'teki bütün etiketler benzersizleştirilip akan bir
+     şeride dönüşüyor. Kesintisiz döngü için liste iki kez art arda
+     yazılıyor (CSS %50 kayınca baştaki kopyaya sorunsuz döner).
+     Dil değiştikçe yeniden çağrılır (renderAll içinden). */
+  function buildTicker() {
+    var track = $("#skills-ticker-track");
+    if (!track || !DATA.skills) return;
+
+    var seen = {};
+    var labels = [];
+    DATA.skills.forEach(function (group) {
+      (group.items || []).forEach(function (item) {
+        var label = t(item);
+        if (!label || seen[label]) return;
+        seen[label] = true;
+        labels.push(label);
+      });
+    });
+
+    var itemsHtml = labels
+      .map(function (label) {
+        return (
+          '<span class="ticker__item"><span class="ticker__dot">•</span> ' +
+          esc(label) +
+          "</span>"
+        );
+      })
+      .join("");
+
+    // Kesintisiz döngü için liste iki kez yazılıyor: CSS %50 kaydırınca
+    // baştaki kopyaya sorunsuz döner. Hareketi azalt tercihi açıkken
+    // CSS şeridi tamamen gizliyor (içeriği alttaki ızgarayla aynı
+    // olduğu için hareketsiz halde sadece tekrar olurdu).
+    track.innerHTML = itemsHtml + itemsHtml;
+  }
+
+  /* --- 6d. Kaydırma ilerleme çubuğu -------------------------- */
+  function initScrollProgress() {
+    var fill = $("#scroll-progress-fill");
+    if (!fill) return;
+
+    var reduced =
+      window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced) return; // CSS .scroll-progress'i tamamen gizliyor
+
+    var ticking = false;
+
+    function update() {
+      ticking = false;
+      var scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      var pct = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+      fill.style.width = Math.min(Math.max(pct, 0), 100) + "%";
+    }
+
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(update);
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    update();
+  }
+
+  /* --- 6e. Hero fotoğrafında hafif paralaks ------------------
+     En fazla 20px kayma — göze çarpmayacak kadar ölçülü.
+     Hareketi azalt tercihi açıksa hiç bağlanmıyor. */
+  function initHeroParallax() {
+    var media = $(".hero__media");
+    if (!media) return;
+
+    var reduced =
+      window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced) return;
+
+    var ticking = false;
+    var MAX_SHIFT = 20;
+
+    function update() {
+      ticking = false;
+      var shift = Math.min(Math.max(window.scrollY * 0.06, 0), MAX_SHIFT);
+      media.style.transform = "translateY(" + shift + "px)";
+    }
+
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(update);
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+  }
+
   /* --- 7. Menüde bulunulan bölümü işaretle ----------------- */
   function initActiveSection() {
     var links = $$(".nav__link");
@@ -680,6 +829,8 @@
     setLanguage(lang);
     initActiveSection();
     initTimelineRail();
+    initScrollProgress();
+    initHeroParallax();
 
     var langBtn = $("#lang-toggle");
     if (langBtn) {

@@ -34,7 +34,7 @@ const I18N = {
 
     "hero.photoHint": "Photo coming soon",
 
-    "about.eyebrow": "01 — About",
+    "about.eyebrow": "// 01 — ABOUT",
     "about.title": "A little about me",
 
     "facts.location": "Location",
@@ -42,33 +42,33 @@ const I18N = {
     "facts.focus": "Focus",
     "facts.languages": "Languages",
 
-    "services.eyebrow": "02 — Services",
+    "services.eyebrow": "// 02 — SERVICES",
     "services.title": "What I can build for you",
     "services.lead":
       "Based in Malatya and working remotely, I build websites, mobile applications and Arduino-based systems for businesses and individuals. Tell me what you have in mind and we will shape the scope together.",
     "services.cta": "Let's talk about your project",
     "services.whatsapp": "Message on WhatsApp",
 
-    "skills.eyebrow": "03 — Skills",
+    "skills.eyebrow": "// 03 — SKILLS",
     "skills.title": "What I work with",
     "skills.lead":
       "I mainly build websites and mobile applications, alongside sensor-based embedded system projects with Arduino.",
 
-    "experience.eyebrow": "04 — Experience",
+    "experience.eyebrow": "// 04 — EXPERIENCE",
     "experience.title": "Where I have worked",
 
-    "projects.eyebrow": "05 — Projects",
+    "projects.eyebrow": "// 05 — PROJECTS",
     "projects.title": "Things I have built",
     "projects.lead":
       "All of the code is public on GitHub. Use the icon at the top right of each card to open the matching repository.",
 
-    "education.eyebrow": "06 — Education",
+    "education.eyebrow": "// 06 — EDUCATION",
     "education.title": "Education, certificates and languages",
     "education.schoolTitle": "Education",
     "education.certTitle": "Certificates",
     "education.langTitle": "Languages",
 
-    "contact.eyebrow": "07 — Contact",
+    "contact.eyebrow": "// 07 — CONTACT",
     "contact.title": "Let's talk",
     "contact.lead":
       "Write to me about a job opportunity, a project idea, or anything you are curious about. I usually reply to emails quickly.",
@@ -85,6 +85,9 @@ const I18N = {
       viewOnGithub: "GitHub'da görüntüle",
       viewDemo: "Canlı demo",
       whatsappText: "Merhaba Harun, sitenizden yazıyorum.",
+      dossierLocationLabel: "KONUM",
+      dossierStackLabel: "YIĞIN",
+      dossierStackValue: "STATİK · BUILD YOK",
       langToggleLabel: "EN",
       langToggleTitle: "Siteyi İngilizce görüntüle",
       mailLabel: "E-posta gönder",
@@ -100,6 +103,9 @@ const I18N = {
       viewOnGithub: "View on GitHub",
       viewDemo: "Live demo",
       whatsappText: "Hello Harun, I am writing from your website.",
+      dossierLocationLabel: "LOCATION",
+      dossierStackLabel: "STACK",
+      dossierStackValue: "STATIC · NO BUILD STEP",
       langToggleLabel: "TR",
       langToggleTitle: "View this page in Turkish",
       mailLabel: "Send an email",

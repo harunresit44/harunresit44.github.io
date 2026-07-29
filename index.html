@@ -23,7 +23,7 @@
     />
     <meta name="author" content="Harun Reşit Karaca" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
-    <meta name="theme-color" content="#faf8f4" />
+    <meta name="theme-color" content="#f7f2ea" />
 
     <!-- Yerel arama sinyalleri -->
     <meta name="geo.region" content="TR-44" />
@@ -73,6 +73,13 @@
     />
 
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+
+    <!-- Kendi sunucumuzda barındırılan fontlar. Görüntülenecek ilk metin
+         bu iki ağırlığı kullandığı için erken yükleme (preload) ile
+         "görünmez metin" (FOIT) süresi kısaltılıyor. -->
+    <link rel="preload" href="assets/fonts/archivo-expanded-800.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin />
+
     <link rel="stylesheet" href="css/styles.css" />
 
     <!-- Tema/dil tercihini sayfa boyanmadan uygular. Ayrıntı: js/boot.js -->
@@ -80,6 +87,12 @@
   </head>
 
   <body>
+    <!-- Kaydırma ilerleme çubuğu — dekoratif, ekran okuyucudan gizli.
+         Genişliği js/main.js tarafından güncelleniyor. -->
+    <div class="scroll-progress" aria-hidden="true">
+      <div class="scroll-progress__fill" id="scroll-progress-fill"></div>
+    </div>
+
     <a class="skip-link" href="#main" data-i18n="a11y.skip">İçeriğe geç</a>
 
     <!-- ============ ÜST ÇUBUK ============ -->
@@ -149,6 +162,11 @@
             </p>
 
             <h1 class="hero__name" id="hero-name">Harun Reşit Karaca</h1>
+
+            <div class="hero__stripe">
+              <span class="stripe stripe--lg" aria-hidden="true"></span>
+            </div>
+
             <p class="hero__title" id="hero-title"></p>
             <p class="hero__subtitle" id="hero-subtitle"></p>
             <p class="hero__tagline" id="hero-tagline"></p>
@@ -188,6 +206,11 @@
                 <span id="hero-email"></span>
               </span>
             </div>
+
+            <!-- Teknik künye satırı — motorsport telemetri estetiğinde,
+                 gerçek bilgi taşıyor (konum koordinatı, teknoloji yığını).
+                 js/main.js > renderDossier() dolduruyor. -->
+            <div class="hero__dossier" id="hero-dossier"></div>
           </div>
 
           <div class="hero__media">
@@ -202,10 +225,20 @@
         </div>
       </section>
 
+      <!-- ============ SAYISAL VURGU ŞERİDİ ============
+           Rakamlar data.js dizilerinin uzunluğundan hesaplanıyor
+           (js/main.js > renderStats), uydurma sayı yok. -->
+      <div class="stats-strip">
+        <div class="container stats-strip__inner" id="stats-strip"></div>
+      </div>
+
       <!-- ============ HAKKIMDA ============ -->
       <section class="section container" id="about">
         <div class="section__head">
-          <span class="section__eyebrow" data-i18n="about.eyebrow">01 — Hakkımda</span>
+          <div class="eyebrow-row">
+            <span class="stripe stripe--sm" aria-hidden="true"></span>
+            <span class="section__eyebrow" data-i18n="about.eyebrow">// 01 — HAKKIMDA</span>
+          </div>
           <h2 class="section__title" data-i18n="about.title">Kısaca ben</h2>
         </div>
 
@@ -239,7 +272,10 @@
            içindeki "services" listesinden geliyor. -->
       <section class="section container" id="services">
         <div class="section__head">
-          <span class="section__eyebrow" data-i18n="services.eyebrow">02 — Hizmetler</span>
+          <div class="eyebrow-row">
+            <span class="stripe stripe--sm" aria-hidden="true"></span>
+            <span class="section__eyebrow" data-i18n="services.eyebrow">// 02 — HİZMETLER</span>
+          </div>
           <h2 class="section__title" data-i18n="services.title">Neler yapıyorum</h2>
           <p class="section__lead" data-i18n="services.lead">
             Malatya'da ve uzaktan; işletmeler, esnaf ve bireyler için web sitesi, mobil uygulama
@@ -272,12 +308,21 @@
       <!-- ============ YETENEKLER ============ -->
       <section class="section container" id="skills">
         <div class="section__head">
-          <span class="section__eyebrow" data-i18n="skills.eyebrow">03 — Yetenekler</span>
+          <div class="eyebrow-row">
+            <span class="stripe stripe--sm" aria-hidden="true"></span>
+            <span class="section__eyebrow" data-i18n="skills.eyebrow">// 03 — YETENEKLER</span>
+          </div>
           <h2 class="section__title" data-i18n="skills.title">Neler biliyorum</h2>
           <p class="section__lead" data-i18n="skills.lead">
             Ağırlıklı olarak web siteleri ve mobil uygulamalar geliştiriyorum; Arduino ile sensör
             tabanlı gömülü sistem projeleri bunlara eşlik ediyor.
           </p>
+        </div>
+
+        <!-- Kayan teknoloji şeridi — DATA.skills'ten benzersizleştirilip
+             js/main.js > initTicker() dolduruyor. -->
+        <div class="ticker" id="skills-ticker">
+          <div class="ticker__track" id="skills-ticker-track"></div>
         </div>
 
         <div class="skills-grid" id="skills-grid"></div>
@@ -286,7 +331,10 @@
       <!-- ============ DENEYİM ============ -->
       <section class="section container" id="experience">
         <div class="section__head">
-          <span class="section__eyebrow" data-i18n="experience.eyebrow">04 — Deneyim</span>
+          <div class="eyebrow-row">
+            <span class="stripe stripe--sm" aria-hidden="true"></span>
+            <span class="section__eyebrow" data-i18n="experience.eyebrow">// 04 — DENEYİM</span>
+          </div>
           <h2 class="section__title" data-i18n="experience.title">Çalıştığım yerler</h2>
         </div>
 
@@ -296,7 +344,10 @@
       <!-- ============ PROJELER ============ -->
       <section class="section container" id="projects">
         <div class="section__head">
-          <span class="section__eyebrow" data-i18n="projects.eyebrow">05 — Projeler</span>
+          <div class="eyebrow-row">
+            <span class="stripe stripe--sm" aria-hidden="true"></span>
+            <span class="section__eyebrow" data-i18n="projects.eyebrow">// 05 — PROJELER</span>
+          </div>
           <h2 class="section__title" data-i18n="projects.title">Yaptığım projeler</h2>
           <p class="section__lead" data-i18n="projects.lead">
             Kodların tamamı GitHub'da açık. Her kartın sağ üstündeki simgeden ilgili depoya
@@ -310,12 +361,15 @@
       <!-- ============ EĞİTİM / SERTİFİKA / DİL ============ -->
       <section class="section container" id="education">
         <div class="section__head">
-          <span class="section__eyebrow" data-i18n="education.eyebrow">06 — Eğitim</span>
+          <div class="eyebrow-row">
+            <span class="stripe stripe--sm" aria-hidden="true"></span>
+            <span class="section__eyebrow" data-i18n="education.eyebrow">// 06 — EĞİTİM</span>
+          </div>
           <h2 class="section__title" data-i18n="education.title">Eğitim, sertifikalar ve diller</h2>
         </div>
 
         <div class="trio">
-          <div class="panel">
+          <div class="panel cut">
             <h3 class="panel__title">
               <svg class="icon" aria-hidden="true"><use href="#i-cap" /></svg>
               <span data-i18n="education.schoolTitle">Eğitim</span>
@@ -323,7 +377,7 @@
             <div class="entry-list" id="education-list"></div>
           </div>
 
-          <div class="panel">
+          <div class="panel cut">
             <h3 class="panel__title">
               <svg class="icon" aria-hidden="true"><use href="#i-award" /></svg>
               <span data-i18n="education.certTitle">Sertifikalar</span>
@@ -331,7 +385,7 @@
             <div class="entry-list" id="certificates-list"></div>
           </div>
 
-          <div class="panel">
+          <div class="panel cut">
             <h3 class="panel__title">
               <svg class="icon" aria-hidden="true"><use href="#i-globe" /></svg>
               <span data-i18n="education.langTitle">Diller</span>
@@ -341,9 +395,15 @@
         </div>
       </section>
 
-      <!-- ============ İLETİŞİM ============ -->
-      <section class="section container contact" id="contact">
-        <span class="section__eyebrow" data-i18n="contact.eyebrow">07 — İletişim</span>
+      <!-- ============ İLETİŞİM ============
+           Sayfanın tek koyu bloğu — genel tema ne olursa olsun
+           burası her zaman espresso tonlarında (bkz. .contact CSS). -->
+      <section class="section contact" id="contact">
+        <div class="container">
+        <div class="eyebrow-row eyebrow-row--center">
+          <span class="stripe stripe--sm" aria-hidden="true"></span>
+          <span class="section__eyebrow" data-i18n="contact.eyebrow">// 07 — İLETİŞİM</span>
+        </div>
         <h2 class="contact__title" data-i18n="contact.title">Konuşalım</h2>
         <p class="contact__lead" data-i18n="contact.lead">
           Bir iş fırsatı, proje fikri ya da sadece merak ettiğin bir şey için yazabilirsin. E-postalara
@@ -378,6 +438,7 @@
             <svg class="icon icon--solid" aria-hidden="true"><use href="#i-linkedin" /></svg>
             LinkedIn
           </a>
+        </div>
         </div>
       </section>
     </main>

@@ -45,6 +45,18 @@ const DATA = {
     status: null,
   },
 
+  /* --- Sayısal vurgu şeridi -----------------------------------
+     Hero'nun altındaki bandı besliyor. Buradaki sayılar UYDURULMUYOR:
+     her "source" alanı aşağıdaki DATA.<source>.length'e karşılık
+     geliyor (js/main.js > renderStats). Yeni bir deneyim/proje
+     eklediğinde sayı otomatik güncellenir, elle değiştirmen gerekmez. */
+  stats: [
+    { source: "experience", label: { tr: "Kurum", en: "Places" } },
+    { source: "projects", label: { tr: "Proje", en: "Projects" } },
+    { source: "skills", label: { tr: "Yetenek Alanı", en: "Skill Areas" } },
+    { source: "languages", label: { tr: "Dil", en: "Languages" } },
+  ],
+
   contact: {
     email: "harunrstkaraca@gmail.com",
     github: "https://github.com/harunresit44",
